@@ -1,8 +1,4 @@
-package main
-
-import (
-	"fmt"
-)
+package calc
 
 func fibonacci() func() int {
 	fn := 0
@@ -15,11 +11,3 @@ func fibonacci() func() int {
 		return fn2
 	}
 }
-
-func main() {
-	f := fibonacci()
-	for i := 0; i < 10; i++ {
-		fmt.Println(f())
-	}
-}
-
