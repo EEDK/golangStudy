@@ -1,11 +1,15 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
-func mutltiply(a , b int) int {
-	return a * b;
+func lenAandUpper(name string) (int, string){
+	return len(name), strings.ToUpper(name)
 }
 
 func main() {
-	fmt.Println(mutltiply(2,2));
+	totalLength, upperName := lenAandUpper("KimDongEon")
+	fmt.Println(totalLength, upperName);
 }
