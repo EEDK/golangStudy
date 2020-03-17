@@ -2,3 +2,12 @@ nomadCoder강의
 
 package에서 export를 하려면 대문자를 사용해야함
 
+2020-03-17:
+NAKED return :  return Value를 명시하지 않아도 코드 명시시
+
+func 함수명( 변수 ) ( 출력값 )
+에서 해당되는 값을 반환
+
+defer : 특정 함수를 마무리(return) 했을시 수행하고싶은 작업 명시
+
+함수에 defer 명시후 이후에 실행시킬 내용 명시
