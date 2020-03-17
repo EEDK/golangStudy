@@ -12,7 +12,23 @@ func lenAndUpper(name string)(length int, uppercase string){
 	return
 }
 
+func superAdd(numbers ...int) int {
+	total := 0
+
+	for i := 0 ; i <= len(numbers) ; i += 1{
+		total += i
+	}
+	return total
+}
+
+func canIDrink(age int) bool {
+	if  koreanAge := age + 2 ; koreanAge < 18{
+		return false
+	}
+	return true
+}
+
+
 func main() {
-	totalLength, up := lenAndUpper("nico")
-	fmt.Println(totalLength , up)
+	fmt.Println(canIDrink(16))
 }
