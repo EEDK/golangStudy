@@ -28,3 +28,26 @@ for i := 0 ; i < len (numbers) ; i += 1 {
 }
 
 for (;;)서 소괄호만 사라짐
+
+//
+
+2020-03-18
+
+switch문 => c나 js랑 거의 유사함 차이점은
+
+대상 변수를 :=로 변경 가능함
+
+ex ) koreanAge := age + 2 이런식으로
+
+map => 직관적이진 않았다. JS의 object 와 비슷한데 선언의 경우
+
+	nico := map[string]string{"name" : "nico", "age" : "27"}
+등 해당 키의 type을 , 내용물의 type을 모두 정하고 시작
+
+Structs
+
+고 언어에서는 constructor 이 존재하지 않음
+
+이론 종료
+
+이후로 dicitionary 프로젝트

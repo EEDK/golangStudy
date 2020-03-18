@@ -5,6 +5,19 @@ import (
 	"strings"
 )
 
+type person struct {
+	name string
+	age int
+	favFood []string
+}
+
+func main() {
+	favFood := []string{"비빔밥" , "김치"}
+	dongeon := person{name : "dongeon" , age : 25 , favFood: favFood};
+	fmt.Println(dongeon)
+}
+
+
 func lenAndUpper(name string)(length int, uppercase string){
 	defer fmt.Println("i'm done")
 	length = len(name)
@@ -22,13 +35,11 @@ func superAdd(numbers ...int) int {
 }
 
 func canIDrink(age int) bool {
-	if  koreanAge := age + 2 ; koreanAge < 18{
+	switch koreanAge := age + 2; koreanAge {
+	case 10 :
 		return false
+	case 18 :
+		return true
 	}
-	return true
-}
-
-
-func main() {
-	fmt.Println(canIDrink(16))
+	return false
 }
