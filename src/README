@@ -48,6 +48,26 @@ Structs
 
 고 언어에서는 constructor 이 존재하지 않음
 
+이부분에 대해서 설명하면
+
+//NewAccount = create Count
+func NewAccount(owner string , balance int) *Account{
+	account := Account{owner: owner, balance: balance}
+	return &account
+}
+
+이런식으로 함수를 짜서 사용해주어야함
+
 이론 종료
 
 이후로 dicitionary 프로젝트
+
+export 할경우 변수 대문자써라
+
+메소드는 함수와는 다름
+
+func (a Account) Deposit(account int){
+
+}
+
+이런식으로 func과 함수명 사이에 해당되는 type을 기입
