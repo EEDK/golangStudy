@@ -15,4 +15,7 @@ func main() {
 	if err != nil {
 		fmt.Println(err)
 	}
+	account.ChangeOwner("임영웅")
+
+	fmt.Println(account.Owner())
 }

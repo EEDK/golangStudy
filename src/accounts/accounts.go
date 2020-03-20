@@ -34,3 +34,13 @@ func (a *Account) Withdraw(amount int) error {
 	a.balance -= amount
 	return nil
 }
+
+// ChangeOwner 주인 이름 바꾸는 함수
+func (a *Account) ChangeOwner(newOwner string){
+	a.owner = newOwner
+}
+
+//주인만출력
+func (a Account) Owner() string{
+	return a.owner
+}
