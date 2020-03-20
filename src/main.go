@@ -1,45 +1,21 @@
 package main
 
 import (
+	"awesomeProject/src/accounts"
 	"fmt"
-	"strings"
 )
 
-type person struct {
-	name string
-	age int
-	favFood []string
-}
-
 func main() {
-	favFood := []string{"비빔밥" , "김치"}
-	dongeon := person{name : "dongeon" , age : 25 , favFood: favFood};
-	fmt.Println(dongeon)
-}
+	account := accounts.NewAccount("dongeon", 1000 )
 
+	account.Deposit(80)
+	fmt.Println(account.Balance())
 
-func lenAndUpper(name string)(length int, uppercase string){
-	defer fmt.Println("i'm done")
-	length = len(name)
-	uppercase = strings.ToUpper(name)
-	return
-}
-
-func superAdd(numbers ...int) int {
-	total := 0
-
-	for i := 0 ; i <= len(numbers) ; i += 1{
-		total += i
+	err := account.Withdraw(10000)
+	if err != nil {
+		fmt.Println(err)
 	}
-	return total
-}
+	account.ChangeOwner("임영웅")
 
-func canIDrink(age int) bool {
-	switch koreanAge := age + 2; koreanAge {
-	case 10 :
-		return false
-	case 18 :
-		return true
-	}
-	return false
+	fmt.Println(account.Owner())
 }
