@@ -1,21 +1,23 @@
 package main
 
 import (
-	"awesomeProject/src/accounts"
+	"awesomeProject/src/myDict"
 	"fmt"
 )
 
 func main() {
-	account := accounts.NewAccount("dongeon", 1000 )
+	dictionary := myDict.Dictionary{"first" : "First word"}
 
-	account.Deposit(80)
-	fmt.Println(account.Balance())
+	word := "hello"
+	defintion := "Greeting"
 
-	err := account.Withdraw(10000)
-	if err != nil {
+	err := dictionary.Add(word, defintion);
+	if err != nil{
 		fmt.Println(err)
 	}
-	account.ChangeOwner("임영웅")
-
-	fmt.Println(account.Owner())
+	hello , err2 := dictionary.Search(word)
+	fmt.Println(hello)
+	if err2 != nil {
+		fmt.Println(err2)
+	}
 }
