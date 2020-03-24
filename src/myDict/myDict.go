@@ -3,9 +3,13 @@ package myDict
 import "errors"
 
 //Dictionary 타입
- type Dictionary map[string]string // alias
-var errNotFound = errors.New("Not Found")
-var errWordExists = errors.New("That word already exists")
+type Dictionary map[string]string // alias
+
+var (
+    errNotFound = errors.New("Not Found")
+    errWordExists = errors.New("That word already exists")
+    errCanUpdate = errors.New("Cant Update non-exisiting word")
+ )
 
  //Search for a word
  func (d Dictionary) Search(word string)(string, error) {
@@ -26,5 +30,21 @@ var errWordExists = errors.New("That word already exists")
    return nil
  }
 
- type Money int
+ // Update a word
+ func (d Dictionary) Update(word , definition string) error {
+     _, err := d.Search(word)
+     switch err {
+     case nil:
+         d[word] = definition
+     case errNotFound:
+         return errCanUpdate
+     }
+     return nil
+ }
 
+//Delete a word
+func (d Dictionary) Delete(word string) {
+    delete(d, word)
+}
+
+ type Money int

@@ -8,16 +8,16 @@ import (
 func main() {
 	dictionary := myDict.Dictionary{"first" : "First word"}
 
-	word := "hello"
-	defintion := "Greeting"
+	baseWord := "hello"
+	dictionary.Add(baseWord, " First")
+	dictionary.Search(baseWord)
+	dictionary.Delete(baseWord)
+	word, err := dictionary.Search(baseWord)
 
-	err := dictionary.Add(word, defintion);
-	if err != nil{
+	if err != nil {
 		fmt.Println(err)
 	}
-	hello , err2 := dictionary.Search(word)
-	fmt.Println(hello)
-	if err2 != nil {
-		fmt.Println(err2)
-	}
+
+	fmt.Println(word)
 }
+
