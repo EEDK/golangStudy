@@ -78,3 +78,5 @@ go에서의 error 검출에서 try - catch 등은 존재하지 않음
 return errors.New('출력')
 
 이런식으로 검출
+
+Goroutines => 다른 함수랑 동시에 실행시키는 함수
