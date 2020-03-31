@@ -9,7 +9,7 @@ import (
 var errRequestFailed = errors.New("Request Fail")
 
 func main() {
-	var results = make(map[string]string) //초기화 해야함
+	/*var results = make(map[string]string) //초기화 해야함
 	urls := []string{
 		"https://www.airbnb.com/",
 		"https://www.google.com/",
@@ -32,7 +32,7 @@ func main() {
 	}
 	for url, result := range results{
 		fmt.Println(url , result)
-	}
+	}*/
 }
 
 
