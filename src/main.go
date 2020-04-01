@@ -2,7 +2,7 @@ package main
 
 import (
 	"errors"
-	"fmt"
+	"golangStudy/src/algorithm"
 	"net/http"
 )
 
@@ -14,7 +14,7 @@ type requestResult struct {
 var errRequestFailed = errors.New("Request failed")
 
 func main() {
-	results := make(map[string]string)
+	/*results := make(map[string]string)
 	c := make(chan requestResult)
 	urls := []string{
 		"https://www.airbnb.com/",
@@ -38,7 +38,8 @@ func main() {
 
 	for url, status := range results {
 		fmt.Println(url, status)
-	}
+	}*/
+	algorithm.Recursion_print_to_n(20)
 
 }
 
