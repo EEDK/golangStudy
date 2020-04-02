@@ -39,7 +39,7 @@ func main() {
 	for url, status := range results {
 		fmt.Println(url, status)
 	}*/
-	algorithm.Recursion_print_to_n(20)
+	algorithm.For_Print_to_n(10)
 
 }
 
