@@ -1,6 +1,8 @@
 package main
 
 import (
+	"fmt"
+	"golangStudy/src/algorithm"
 	"log"
 	"net/http"
 
@@ -10,7 +12,8 @@ import (
 var baseURL string = "https://kr.indeed.com/jobs?q=python&limit=50"
 
 func main() {
-	getPages()
+	//getPages()
+	fmt.Println(algorithm.Is_n_prime_number(100))
 }
 
 func getPages() int {
@@ -25,7 +28,7 @@ func getPages() int {
 	doc, err := goquery.NewDocumentFromReader(res.Body)
 	checkErr(err)
 
-	doc.Find(".pagination").Each()
+	//doc.Find(".pagination").Each()
 
 	return 0
 }
