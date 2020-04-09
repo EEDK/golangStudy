@@ -5,14 +5,15 @@ import (
 	"log"
 	"net/http"
 	"strconv"
+	"strings"
 
 	"github.com/PuerkitoBio/goquery"
 )
 
 type extractedJob struct {
 	id       string
-	location string
 	title    string
+	location string
 	salary   string
 	summary  string
 }
@@ -20,17 +21,22 @@ type extractedJob struct {
 var baseURL string = "https://kr.indeed.com/jobs?q=python&limit=50"
 
 func main() {
+	var jobs []extractedJob
 	totalPages := getPages()
 
 	for i := 0; i < totalPages; i++ {
-		getPage(i)
+		extractedJobs := getPage(i)
+		jobs = append(jobs, extractedJobs...)
 	}
+
+	fmt.Println(jobs)
+	//algorithm.IsPrime(1024)
 }
 
-func getPage(page int) {
+func getPage(page int) []extractedJob {
+	var jobs []extractedJob
 	pageURL := baseURL + "&start=" + strconv.Itoa(page*50)
-	fmt.Println("Requestiong", pageURL)
-
+	fmt.Println("Requesting", pageURL)
 	res, err := http.Get(pageURL)
 	checkErr(err)
 	checkCode(res)
@@ -43,21 +49,34 @@ func getPage(page int) {
 	searchCards := doc.Find(".jobsearch-SerpJobCard")
 
 	searchCards.Each(func(i int, card *goquery.Selection) {
-		id, _ := card.Attr("data-jk")
-		title := card.Find(".title>a").Text()
-		lcation := card.Find(".sjcl").Text()
-
-		fmt.Println(id, title, lcation)
+		job := extractJob(card)
+		jobs = append(jobs, job)
 	})
+	return jobs
+}
 
+func extractJob(card *goquery.Selection) extractedJob {
+	id, _ := card.Attr("data-jk")
+	title := cleanString(card.Find(".title>a").Text())
+	location := cleanString(card.Find(".sjcl").Text())
+	salary := cleanString(card.Find(".salaryText").Text())
+	summary := cleanString(card.Find(".summary").Text())
+	return extractedJob{
+		id:       id,
+		title:    title,
+		location: location,
+		salary:   salary,
+		summary:  summary}
+}
+
+func cleanString(str string) string {
+	return strings.Join(strings.Fields(strings.TrimSpace(str)), " ")
 }
 
 func getPages() int {
 	pages := 0
 	res, err := http.Get(baseURL)
-	// 에러 발생시
 	checkErr(err)
-	// 정상 접속이 안될수
 	checkCode(res)
 
 	defer res.Body.Close()
@@ -65,9 +84,8 @@ func getPages() int {
 	doc, err := goquery.NewDocumentFromReader(res.Body)
 	checkErr(err)
 
-	// 페이지수 찾고 찾은 페이지수 만큼 정보추출
-	doc.Find(".pagination").Each(func(i int, selection *goquery.Selection) {
-		pages = (selection.Find("a").Length())
+	doc.Find(".pagination").Each(func(i int, s *goquery.Selection) {
+		pages = s.Find("a").Length()
 	})
 
 	return pages
@@ -81,11 +99,6 @@ func checkErr(err error) {
 
 func checkCode(res *http.Response) {
 	if res.StatusCode != 200 {
-		log.Fatalln("Request failed with Status: ", res.StatusCode)
+		log.Fatalln("Request failed with Status:", res.StatusCode)
 	}
-
 }
-
-/*func cleanString(str string) string {
-
-}*/
