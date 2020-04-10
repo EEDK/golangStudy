@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/csv"
 	"fmt"
+	"golangStudy/src/algorithm"
 	"log"
 	"net/http"
 	"os"
@@ -23,7 +24,7 @@ type extractedJob struct {
 var baseURL string = "https://kr.indeed.com/jobs?q=python&limit=50"
 
 func main() {
-	var jobs []extractedJob
+	/*var jobs []extractedJob
 	c := make(chan []extractedJob)
 	totalPages := getPages()
 
@@ -37,7 +38,8 @@ func main() {
 	}
 
 	writeJobs(jobs)
-	fmt.Println("Done, extracted", len(jobs))
+	fmt.Println("Done, extracted", len(jobs))*/
+	algorithm.Calc_Prime(500)
 }
 
 func getPage(page int, mainC chan<- []extractedJob) {
