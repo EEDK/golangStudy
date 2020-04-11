@@ -20,14 +20,14 @@ type extractedJob struct {
 	summary  string
 }
 
-// Scrape Indeed by a term
 func Scrape(term string) {
 	var baseURL string = "https://kr.indeed.com/jobs?q=" + term + "&limit=50"
+
 	var jobs []extractedJob
 	c := make(chan []extractedJob)
 	totalPages := getPages(baseURL)
 
-	for i := 0; i < 9; i++ {
+	for i := 0; i < totalPages; i++ {
 		go getPage(i, baseURL, c)
 	}
 
@@ -40,10 +40,10 @@ func Scrape(term string) {
 	fmt.Println("Done, extracted", len(jobs))
 }
 
-func getPage(page int, url string, mainC chan<- []extractedJob) {
+func getPage(page int, baseURL string, mainC chan<- []extractedJob) {
 	var jobs []extractedJob
 	c := make(chan extractedJob)
-	pageURL := url + "&start=" + strconv.Itoa(page*50)
+	pageURL := baseURL + "&start=" + strconv.Itoa(page*50)
 	fmt.Println("Requesting", pageURL)
 	res, err := http.Get(pageURL)
 	checkErr(err)
@@ -81,14 +81,13 @@ func extractJob(card *goquery.Selection, c chan<- extractedJob) {
 		summary:  summary}
 }
 
-// CleanString cleans a string
 func CleanString(str string) string {
 	return strings.Join(strings.Fields(strings.TrimSpace(str)), " ")
 }
 
-func getPages(url string) int {
+func getPages(baseURL string) int {
 	pages := 0
-	res, err := http.Get(url)
+	res, err := http.Get(baseURL)
 	checkErr(err)
 	checkCode(res)
 
