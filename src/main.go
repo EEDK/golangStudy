@@ -39,7 +39,7 @@ func main() {
 
 	writeJobs(jobs)
 	fmt.Println("Done, extracted", len(jobs))*/
-	algorithm.Calc_Prime(500)
+	fmt.Println(algorithm.Sum_of_yaksu(20))
 }
 
 func getPage(page int, mainC chan<- []extractedJob) {
