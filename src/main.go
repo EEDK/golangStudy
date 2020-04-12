@@ -1,6 +1,8 @@
 package main
 
 import (
+	"fmt"
+	"golangStudy/src/algorithm"
 	"golangStudy/src/scrapper"
 	"os"
 	"strings"
@@ -22,8 +24,9 @@ func handleScrape(c echo.Context) error {
 }
 
 func main() {
-	e := echo.New()
+	/*e := echo.New()
 	e.GET("/", handleHome)
 	e.POST("/scrape", handleScrape)
-	e.Logger.Fatal(e.Start(":1323"))
+	e.Logger.Fatal(e.Start(":1323"))*/
+	fmt.Println(algorithm.Gcd(24, 64))
 }
