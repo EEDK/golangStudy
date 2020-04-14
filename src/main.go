@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"golangStudy/src/algorithm"
 	"golangStudy/src/scrapper"
 	"os"
@@ -28,5 +27,5 @@ func main() {
 	e.GET("/", handleHome)
 	e.POST("/scrape", handleScrape)
 	e.Logger.Fatal(e.Start(":1323"))*/
-	fmt.Println(algorithm.Recurssion_Gcd(24, 64))
+	algorithm.Calc_prime_factoriztaion(48)
 }
