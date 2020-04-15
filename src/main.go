@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"golangStudy/src/algorithm"
 	"golangStudy/src/scrapper"
 	"os"
@@ -27,5 +28,5 @@ func main() {
 	e.GET("/", handleHome)
 	e.POST("/scrape", handleScrape)
 	e.Logger.Fatal(e.Start(":1323"))*/
-	algorithm.Calc_prime_factoriztaion(48)
+	fmt.Printf("%d\n", algorithm.CalcLCM(2, 3))
 }
