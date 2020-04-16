@@ -28,5 +28,9 @@ func main() {
 	e.GET("/", handleHome)
 	e.POST("/scrape", handleScrape)
 	e.Logger.Fatal(e.Start(":1323"))*/
-	fmt.Printf("%d\n", algorithm.CalcLCM(2, 3))
+
+	answer := algorithm.CalcArray(10)
+	for i := 0; i <= 9; i++ {
+		fmt.Printf("%d\n", answer[i])
+	}
 }
