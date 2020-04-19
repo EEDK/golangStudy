@@ -31,7 +31,7 @@ func main() {
 
 	for n := 1; n <= 5; n++ {
 		for r := 0; r <= n; r++ {
-			fmt.Printf("%d C %d = %d\n", n, r, algorithm.Qustion19(n, r))
+			fmt.Printf("%d C %d = %d\n", n, r, algorithm.Qusetion20(n, r))
 		}
 	}
 }
