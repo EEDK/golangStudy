@@ -29,8 +29,8 @@ func main() {
 	e.POST("/scrape", handleScrape)
 	e.Logger.Fatal(e.Start(":1323"))*/
 
-	n := 8
-	r := 100
+	n := -15
+	r := 77
 
-	fmt.Printf("%d", algorithm.Qustion22(n, r))
+	fmt.Printf("%d", algorithm.Qustion23(n, r))
 }
