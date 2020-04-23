@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"golangStudy/src/algorithm"
 	"golangStudy/src/scrapper"
 	"os"
@@ -29,8 +28,7 @@ func main() {
 	e.POST("/scrape", handleScrape)
 	e.Logger.Fatal(e.Start(":1323"))*/
 
-	n := -15
-	r := 77
+	a := []int{75, 25, 6, 73, 43, 46, 31, 13, 60, 90, 5, 43, 35, 65, 100, 28, 83, 95, 35, 45}
 
-	fmt.Printf("%d", algorithm.Qustion23(n, r))
+	algorithm.Question(a)
 }
