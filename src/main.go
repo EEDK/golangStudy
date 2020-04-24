@@ -2,14 +2,9 @@ package main
 
 import (
 	"golangStudy/src/algorithm"
-	"golangStudy/src/scrapper"
-	"os"
-	"strings"
-
-	"github.com/labstack/echo"
 )
 
-const fileName string = "jobs.csv"
+/*const fileName string = "jobs.csv"
 
 func handleHome(c echo.Context) error {
 	return c.File("home.html")
@@ -21,7 +16,7 @@ func handleScrape(c echo.Context) error {
 	scrapper.Scrape(term)
 	return c.Attachment("jobs.csv", "jobs.csv")
 }
-
+*/
 func main() {
 	/*e := echo.New()
 	e.GET("/", handleHome)
@@ -30,5 +25,5 @@ func main() {
 
 	a := []int{75, 25, 6, 73, 43, 46, 31, 13, 60, 90, 5, 43, 35, 65, 100, 28, 83, 95, 35, 45}
 
-	algorithm.Question(a)
+	algorithm.Question25(a)
 }

@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-func Question(a []int) {
+func Question24(a []int) {
 	length := len(a)
 
 	num := make(map[int]int, 10)
