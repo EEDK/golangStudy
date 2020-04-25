@@ -23,7 +23,5 @@ func main() {
 	e.POST("/scrape", handleScrape)
 	e.Logger.Fatal(e.Start(":1323"))*/
 
-	a := []int{75, 25, 6, 73, 43, 46, 31, 13, 60, 90, 5, 43, 35, 65, 100, 28, 83, 95, 35, 45}
-
-	algorithm.Question25(a)
+	algorithm.Question26(245, 2)
 }
