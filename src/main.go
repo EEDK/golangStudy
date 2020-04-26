@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"golangStudy/src/algorithm"
 )
 
@@ -23,5 +24,5 @@ func main() {
 	e.POST("/scrape", handleScrape)
 	e.Logger.Fatal(e.Start(":1323"))*/
 
-	algorithm.Question26(245, 2)
+	fmt.Printf("%d\n", algorithm.Question27(5))
 }
