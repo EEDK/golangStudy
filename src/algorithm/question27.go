@@ -14,8 +14,7 @@ package algorithm
 func Question27(n int) int {
 	if n == 1 {
 		return 1
-	}
-	else {
+	} else {
 		return n * Question27(n-1)
 	}
 }
