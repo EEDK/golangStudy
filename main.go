@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"golangStudy/src/algorithm"
 )
 
 /*const fileName string = "jobs.csv"
@@ -23,14 +22,16 @@ func main() {
 	e.GET("/", handleHome)
 	e.POST("/scrape", handleScrape)
 	e.Logger.Fatal(e.Start(":1323"))*/
+	fmt.Printf("%d\n" , Question30(4 , 7))
 
-	algorithm.Question29(3, "a", "b", "c")
 }
 
-func Question29(n int , a string , b string , c string){
-	if n > 0 {
-		Question29(n-1, a , c , b)
-		fmt.Printf("%d번 원판을 %s에서 %s 로 옮김\n", n , a , b)
-		Question29(n-1, c , b , a)
+func Question30(a int , b int) int{
+	if a == b {
+		return 0
+	} else if b > a {
+		return Question30(a, b / 2) + 1
+	} else {
+		return Question30(a / 2 , b) + 1
 	}
 }
