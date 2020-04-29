@@ -1,8 +1,6 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
 /*const fileName string = "jobs.csv"
 
@@ -22,16 +20,18 @@ func main() {
 	e.GET("/", handleHome)
 	e.POST("/scrape", handleScrape)
 	e.Logger.Fatal(e.Start(":1323"))*/
-	fmt.Printf("%d\n" , Question30(4 , 7))
+	fmt.Printf("%d\n" , Question31(17))
 
 }
 
-func Question30(a int , b int) int{
-	if a == b {
-		return 0
-	} else if b > a {
-		return Question30(a, b / 2) + 1
-	} else {
-		return Question30(a / 2 , b) + 1
+func Question31(n int) int{
+	answer := -1
+	for i := 0 ; n >= 0 ; i++ {
+		n = n - 2 * i + 1
+
+		if n < 0 {
+			answer = i-1
+		}
 	}
+	return answer
 }
