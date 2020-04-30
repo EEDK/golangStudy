@@ -20,18 +20,16 @@ func main() {
 	e.GET("/", handleHome)
 	e.POST("/scrape", handleScrape)
 	e.Logger.Fatal(e.Start(":1323"))*/
-	fmt.Printf("%d\n" , Question31(17))
+
+	Question32()
 
 }
 
-func Question31(n int) int{
-	answer := -1
-	for i := 0 ; n >= 0 ; i++ {
-		n = n - 2 * i + 1
-
-		if n < 0 {
-			answer = i-1
+func Question32(){
+	for i := 'A' ; i <= 'Z' ; i++{
+		for j := 'A' ; j <= 'Z' - (i - 65) ; j++{
+			fmt.Printf("%c " , j)
 		}
+		fmt.Printf("\n")
 	}
-	return answer
 }
