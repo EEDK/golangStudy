@@ -21,15 +21,18 @@ func main() {
 	e.POST("/scrape", handleScrape)
 	e.Logger.Fatal(e.Start(":1323"))*/
 
-	Question32()
-
+	Question33('Z')
 }
 
-func Question32(){
-	for i := 'A' ; i <= 'Z' ; i++{
-		for j := 'A' ; j <= 'Z' - (i - 65) ; j++{
-			fmt.Printf("%c " , j)
+func Question33(n int32){
+	if n < 'A' || n > 'Z' {
+
+	} else {
+		for c := 'A'; c <= n ; c++{
+			fmt.Printf("%2c " , c)
 		}
 		fmt.Printf("\n")
 	}
+	next := n - 1
+	Question33(next)
 }
