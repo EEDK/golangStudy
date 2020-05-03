@@ -1,5 +1,11 @@
 package main
 
+import (
+	"fmt"
+	"strings"
+	"unicode/utf8"
+)
+
 /*const fileName string = "jobs.csv"
 
 func handleHome(c echo.Context) error {
@@ -19,4 +25,25 @@ func main() {
 	e.POST("/scrape", handleScrape)
 	e.Logger.Fatal(e.Start(":1323"))*/
 
+	Question35("asdsa")
+}
+
+func Question35(n string){
+	length := utf8.RuneCountInString(n) // 2: 문자열의 실제 길이를 구함
+
+	isRight := true
+	for i := 0 ; i < length / 2 ; i++{
+		if n[i] != n[length -i - 1]{
+			isRight = false
+		}
+	}
+	if isRight{
+		fmt.Print("it is palindrome")
+	} else {
+		fmt.Print("it's not palindrome")
+	}
+}
+
+func CleanString(str string) string {
+	return strings.Join(strings.Fields(strings.TrimSpace(str)), " ")
 }
