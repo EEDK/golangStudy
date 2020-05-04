@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"strings"
-	"unicode/utf8"
 )
 
 /*const fileName string = "jobs.csv"
@@ -24,24 +23,25 @@ func main() {
 	e.GET("/", handleHome)
 	e.POST("/scrape", handleScrape)
 	e.Logger.Fatal(e.Start(":1323"))*/
-
-	Question35("asdsa")
+	Question36(3 , 1, 1 , 1)
+	fmt.Println(cnt)
 }
 
-func Question35(n string){
-	length := utf8.RuneCountInString(n) // 2: 문자열의 실제 길이를 구함
+var cnt int = 0
+var checked = [21][21][21]int{}
 
-	isRight := true
-	for i := 0 ; i < length / 2 ; i++{
-		if n[i] != n[length -i - 1]{
-			isRight = false
+func Question36(n int , a int , b int , c int) {
+
+	if a + b + c == n {
+		if a <= b && a <= c && a + b > c && checked[a][b][c] == 0 {
+			cnt = cnt + 1
+			checked[a][b][c] = 1
 		}
+		return
 	}
-	if isRight{
-		fmt.Print("it is palindrome")
-	} else {
-		fmt.Print("it's not palindrome")
-	}
+	Question36(n, a+1 , b , c)
+	Question36(n, a , b+1 , c)
+	Question36(n, a , b , c+1)
 }
 
 func CleanString(str string) string {
