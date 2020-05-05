@@ -23,26 +23,29 @@ func main() {
 	e.GET("/", handleHome)
 	e.POST("/scrape", handleScrape)
 	e.Logger.Fatal(e.Start(":1323"))*/
-	Question36(3 , 1, 1 , 1)
-	fmt.Println(cnt)
+	Question37()
 }
+var N int = 12
 
-var cnt int = 0
-var checked = [21][21][21]int{}
-
-func Question36(n int , a int , b int , c int) {
-
-	if a + b + c == n {
-		if a <= b && a <= c && a + b > c && checked[a][b][c] == 0 {
-			cnt = cnt + 1
-			checked[a][b][c] = 1
+func Question37(){
+	for n := 0 ; n <= N ; n++{
+		for r := 0 ; r <= n; r++{
+			fmt.Printf("%d ", Qustion19(n , r))
 		}
-		return
+		fmt.Printf("\n")
 	}
-	Question36(n, a+1 , b , c)
-	Question36(n, a , b+1 , c)
-	Question36(n, a , b , c+1)
 }
+
+
+func Qustion19(n int, r int) int {
+	p := 1
+	for i := 1; i <= r; i++ {
+		p = p * (n - i + 1) / i
+	}
+
+	return p
+}
+
 
 func CleanString(str string) string {
 	return strings.Join(strings.Fields(strings.TrimSpace(str)), " ")
