@@ -23,27 +23,16 @@ func main() {
 	e.GET("/", handleHome)
 	e.POST("/scrape", handleScrape)
 	e.Logger.Fatal(e.Start(":1323"))*/
-	Question37()
-}
-var N int = 12
 
-func Question37(){
-	for n := 0 ; n <= N ; n++{
-		for r := 0 ; r <= n; r++{
-			fmt.Printf("%d ", Qustion19(n , r))
-		}
-		fmt.Printf("\n")
-	}
+	fmt.Printf("%d\n" , Question38(84, 60))
 }
 
-
-func Qustion19(n int, r int) int {
-	p := 1
-	for i := 1; i <= r; i++ {
-		p = p * (n - i + 1) / i
+func Question38(a , b int) int{
+	if b == 0 {
+		return a
+	} else {
+		return Question38(b, a % b)
 	}
-
-	return p
 }
 
 
