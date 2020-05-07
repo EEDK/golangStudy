@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"strings"
 )
 
@@ -24,16 +23,9 @@ func main() {
 	e.POST("/scrape", handleScrape)
 	e.Logger.Fatal(e.Start(":1323"))*/
 
-	fmt.Printf("%d\n" , Question38(84, 60))
 }
 
-func Question38(a , b int) int{
-	if b == 0 {
-		return a
-	} else {
-		return Question38(b, a % b)
-	}
-}
+
 
 
 func CleanString(str string) string {
