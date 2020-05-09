@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"strings"
 )
 
@@ -23,16 +22,9 @@ func main() {
 	e.GET("/", handleHome)
 	e.POST("/scrape", handleScrape)
 	e.Logger.Fatal(e.Start(":1323"))*/
-	fmt.Printf("%d\n" , RecurssionQuestion40(10))
+
 }
 
-func RecurssionQuestion40(n int) int{
-	if n <= 2{
-		return 1
-	}	else {
-		return RecurssionQuestion40(n-1) + RecurssionQuestion40(n-2)
-	}
-}
 
 
 func CleanString(str string) string {
