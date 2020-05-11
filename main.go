@@ -23,18 +23,20 @@ func main() {
 	e.GET("/", handleHome)
 	e.POST("/scrape", handleScrape)
 	e.Logger.Fatal(e.Start(":1323"))*/
-	fmt.Printf("%d\n " , Question42(100))
+	Question43(100)
+	fmt.Printf("%d\n " , table[100])
 }
 
 var table [101]int
-var n = 0
 
-func Question42(k int) int{
-	if k == n + 1{
-		return 1
+func Question43(k int){
+	for i := 1 ; i <= k ; i ++{
+		if i == 1{
+			table[i] = 1
+		} else {
+			table[i] = table[i-1] + i;
+ 		}
 	}
-	table[k] = k + Question42(k-1)
-	return table[k]
 }
 
 
