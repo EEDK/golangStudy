@@ -2,44 +2,61 @@ package main
 
 import (
 	"fmt"
-	"strings"
 )
 
-/*const fileName string = "jobs.csv"
 
-func handleHome(c echo.Context) error {
-	return c.File("home.html")
-}
-
-func handleScrape(c echo.Context) error {
-	defer os.Remove("jobs.csv")
-	term := strings.ToLower(scrapper.CleanString(c.FormValue("term")))
-	scrapper.Scrape(term)
-	return c.Attachment("jobs.csv", "jobs.csv")
-}
-*/
 func main() {
-	/*e := echo.New()
-	e.GET("/", handleHome)
-	e.POST("/scrape", handleScrape)
-	e.Logger.Fatal(e.Start(":1323"))*/
-	Question43(100)
-	fmt.Printf("%d\n " , table[100])
-}
 
-var table [101]int
+	var n , s int
 
-func Question43(k int){
-	for i := 1 ; i <= k ; i ++{
-		if i == 1{
-			table[i] = 1
-		} else {
-			table[i] = table[i-1] + i;
- 		}
+	fmt.Scan(&n)
+	if n > 50{
+		return
 	}
+
+	x, err := intScanln(n)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	for i := 0 ; i < n ; i++{
+		if x[i] > 1000000 || x[i] < 0{
+			return
+		}
+	}
+
+	fmt.Scan(&s)
+	if s > 1000000 || s < 0{
+		return
+	}
+
+	checker := 0
+
+	for i := 0; i < n-1; i++ {
+		for j := 0; j < n-1 ; j++{
+			if x[i] < x[i+1] && checker < s{
+				temp := x[i+1]
+				x[i+1] = x[i]
+				x[i] = temp
+				checker++
+			}
+		}
+	}
+
+	for i := 0 ; i < n ; i++ {
+		fmt.Printf("%d ", x[i])
+	}
+	fmt.Println()
 }
 
-
-func CleanString(str string) string {
-	return strings.Join(strings.Fields(strings.TrimSpace(str)), " ")
+func intScanln(n int) ([]int, error) {
+	x := make([]int, n)
+	y := make([]interface{}, len(x))
+	for i := range x {
+		y[i] = &x[i]
+	}
+	n, err := fmt.Scanln(y...)
+	x = x[:n]
+	return x, err
 }
