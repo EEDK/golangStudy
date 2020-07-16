@@ -47,7 +47,7 @@ func main() {
 	for i := 0 ; i < n ; i++ {
 		fmt.Printf("%d ", x[i])
 	}
-	fmt.Println();;
+	fmt.Println();
 }
 
 func intScanln(n int) ([]int, error) {
