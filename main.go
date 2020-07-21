@@ -1,7 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"golangStudy/something"
+)
 
 func main(){
 	fmt.Println("Hello World")
+	something.SayGoodBye()
 }
