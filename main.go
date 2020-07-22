@@ -6,6 +6,5 @@ import (
 )
 
 func main(){
-	fmt.Println("Hello World")
-	something.SayGoodBye()
+	fmt.Println(something.Factorial(5))
 }
