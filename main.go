@@ -1,10 +1,9 @@
 package main
 
-import (
-	"fmt"
-	"golangStudy/something"
-)
+import "fmt"
 
 func main(){
-	fmt.Println(something.Factorial(5))
+	const name string = "kim"
+
+	fmt.Println(name)
 }
