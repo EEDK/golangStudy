@@ -3,7 +3,9 @@ package main
 import "fmt"
 
 func main(){
-	const name string = "kim"
+	fmt.Println(multiFly(2 , 5))
+}
 
-	fmt.Println(name)
+func multiFly(n, m int) int {
+	return n * m
 }
