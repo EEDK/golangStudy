@@ -1,17 +1,11 @@
 package main
 
-import (
-	"fmt"
-)
-
-func superAdd(numbers ...int) int {
-	sum := 0
-	for _, number := range numbers {
-		sum += number
-	}
-	return sum
-}
+import "fmt"
 
 func main() {
-	fmt.Println(superAdd(1, 2, 3, 4, 5, 6))
+	names := [5]string{"kim", "dong","eon"}
+	names[4] = "one"
+	names[3] = "good"
+
+	fmt.Println(names)
 }
