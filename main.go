@@ -1,11 +1,16 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
+
+func lenAndUpper(name string) (int , string) {
+	return len(name), strings.ToUpper(name)
+}
 
 func main(){
-	fmt.Println(multiFly(2 , 5))
+	totalLength , _ := lenAndUpper("king dong eon")
+	fmt.Println(totalLength )
 }
 
-func multiFly(n, m int) int {
-	return n * m
-}
