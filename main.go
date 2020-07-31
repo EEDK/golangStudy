@@ -7,10 +7,13 @@ import (
 
 func main() {
 	dictionary := myDict.Dictionary{"first": "First word"}
-	definition, err := dictionary.Search("second")
-	if err != nil {
+	word := "hello"
+	definition := "Greeting"
+	err := dictionary.Add(word, definition)
+	if err != nil{
 		fmt.Println(err)
-	} else {
-		fmt.Println(definition)
 	}
+	hello , err := dictionary.Search(word)
+	
+	fmt.Println(hello)
 }
