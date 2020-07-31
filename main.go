@@ -2,12 +2,15 @@ package main
 
 import (
 	"fmt"
-	"golangStudy/banking"
+	"golangStudy/myDict"
 )
 
 func main() {
-	account := banking.NewAccount("kde")
-	account.AccountDeposit(10)
-	account.ChangeAccountOwner("Juwon")
-	fmt.Println(account)
+	dictionary := myDict.Dictionary{"first": "First word"}
+	definition, err := dictionary.Search("second")
+	if err != nil {
+		fmt.Println(err)
+	} else {
+		fmt.Println(definition)
+	}
 }

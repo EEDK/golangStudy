@@ -28,7 +28,6 @@ func (a BankAccount) Owner() string{
 	return a.owner
 }
 
-
 // Activity
 func (a *BankAccount) AccountDeposit(amount int){
 	a.balance += amount
