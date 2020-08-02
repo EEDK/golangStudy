@@ -14,6 +14,7 @@ func main() {
 		fmt.Println(err)
 	}
 	hello , err := dictionary.Search(word)
-	
+
+
 	fmt.Println(hello)
 }
